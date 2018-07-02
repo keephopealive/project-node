@@ -1,8 +1,8 @@
-module.exports = function(app){
+module.exports = function(app, io){
 	const customers = require('./../controllers/customers.ctrl');
 	
 	// // Customers Restful API
-	app.get('/customers', customers.index );
+	app.get('/customers', (req, res, next) => customers.index(req, res, next, io) );
 	// app.post('/customers', customers.create );
 	// app.get('/customers/:id', customers.show );
 	// app.delete('/customers/:id', customers.destroy );

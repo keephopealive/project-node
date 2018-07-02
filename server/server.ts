@@ -62,7 +62,6 @@ const server = app.listen(app.get("port"), () => {
 import * as socketIo from 'socket.io';
 const io = socketIo.listen(server);
 
-
 // ============ Static Routes ============ 
 app.use(express.static(
     path.join(__dirname, "public"),
@@ -70,10 +69,20 @@ app.use(express.static(
 ));
 
 // ============ HTTP Routes ============ 
-require('./config/routes.config')(app);
+require('./config/routes.config')(app, io);
 
 // ============ Socket Routes ============ 
-require('./config/routes.config')(io);
+// require('./config/sockets.config')(io);
+io.sockets.on('connection', function(socket) { 
+
+
+    socket.on('button_clicked', (data) => {
+        // User.find({},function(){
+        //     io.emit('update')
+        // })
+    });
+
+});
 
 
 export default app;

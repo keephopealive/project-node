@@ -2,6 +2,23 @@ module.exports = function(io){
 
 // (Listener/Trigger) When Client Connects to Server
 io.sockets.on('connection', function(socket) { 
+
+
+  socket.on('button_clicked', (data) => {
+    
+  });
+
+
+  // socket.on('button_clicked', (data) => controller.method(io, socket, data) );
+  // socket.on('button_clicked', controller.method);
+  // socket.on('button_clicked', controller.method);
+  // socket.on('button_clicked', controller.method);
+  // socket.on('button_clicked', controller.method);
+  // socket.on('button_clicked', controller.method);
+  // socket.on('button_clicked', controller.method);
+  // socket.on('button_clicked', controller.method);
+
+
   console.log("Socket connected with id: ", socket.id);
 	
   // Start - (Listener/Trigger) When Client emits 'button_clicked' to server
